@@ -1,0 +1,19 @@
+{
+  "name": "wezrender",
+  "version": "1.0.0",
+  "description": "A lightweight canvas library.",
+  "main": "src/index.js",
+  "scripts": {
+    
+  },
+  "author": "guyoung",
+  "homepage": "https://github.com/guyoung/WeZRender",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyoung/WeZRender.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^1.14.0"
+  }
+}

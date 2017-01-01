@@ -1,0 +1,37 @@
+/**index.wxss**/
+
+.btn-area{
+    padding: 0 15px;
+}
+.btn-area button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.page {
+    min-height: 100%;
+    flex: 1;
+    background-color: #FBF9FE;
+    font-size: 16px;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+    overflow: hidden;
+}
+.page__hd{
+    padding: 40px;
+}
+.page__title{
+    display: block;
+    font-size: 20px;
+}
+.page__desc{
+    margin-top: 5px;
+    font-size: 14px;
+    color: #888888;
+}
+
+.navigator-hover button{
+    background-color:blue;
+}
+.other-navigator-hover button{
+    background-color:red;
+}

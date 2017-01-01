@@ -1,0 +1,2 @@
+<!--index.wxml-->
+<canvas style="width: 375px; height: 600px;" canvas-id="bezier-canvas-1"></canvas>
