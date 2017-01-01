@@ -1,4 +1,4 @@
-WeZRender：微信小程序Canvas增强组件。
+WeZRender：微信小程序Canvas增强组件
 ==================================
 
 [![WeZRender version][wezrender-release-image]][wezrender-release-url]
@@ -27,7 +27,7 @@ JS：
 
 ## 特性
 
-`数据驱动`
+**数据驱动**
 
 利用WeZRender绘图，只需定义图形数据。
 
@@ -45,7 +45,7 @@ JS：
     });
 ```
 
-`丰富的图形选项`
+**丰富的图形选项**
 
 内置多种图形元素（圆形、椭圆、圆环、扇形、矩形、多边形、直线、曲线、心形、水滴、玫瑰线、Trochoid、文字、图片等），统一且丰富的图形属性充分满足个性化需求。
 
@@ -63,7 +63,7 @@ JS：
     });
 ```
 
-`强大的动画支持`
+**强大的动画支持**
 
 提供promise式的动画接口和常用缓动函数，轻松实现各种动画需求。
 
@@ -90,7 +90,7 @@ JS：
         .start();
 ``` 
 
-`易于扩展`
+**易于扩展**
 
 分而治之的图形定义策略允许扩展图形元素。
 
@@ -149,6 +149,11 @@ JS：
 
 本项目依据MIT开源协议发布，允许任何组织和个人免费使用。
 
+
+## 项目地址
+
+ * <https://github.com/guyoung/WeZRender>
+
 ------------------------------------------------
 
 **Guyoung Studio**
@@ -156,9 +161,6 @@ JS：
 ![微信公众号](https://mmbiz.qlogo.cn/mmbiz_jpg/5IMiaY073fa7zxH6f5q5EticlwZPsYQtUnpYHspNiczmNyjtCXnR7LAmvpstK4EycfzIQkciboLh1qtWRcCibEPuDhA/0?wx_fmt=jpeg)
 
 
-
-
-https://mmbiz.qlogo.cn/mmbiz_jpg/5IMiaY073fa7zxH6f5q5EticlwZPsYQtUnpYHspNiczmNyjtCXnR7LAmvpstK4EycfzIQkciboLh1qtWRcCibEPuDhA/0?wx_fmt=jpeg
 
 [wezrender-url]: https://github.com/guyoung/WeZRender
 [wezrender-release-image]: https://img.shields.io/badge/Release-v1.0.0-brightgreen.svg
