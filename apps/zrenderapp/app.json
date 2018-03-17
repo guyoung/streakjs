@@ -1,0 +1,28 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/circle/index",
+    "pages/line/index",
+    "pages/rect/index",
+    "pages/bezier/index",
+    "pages/polygon/index",
+    "pages/polyline/index",
+    "pages/polyline2/index",
+    "pages/star/index",
+    "pages/droplet/index",
+    "pages/rose/index",
+    "pages/trochoid/index",
+    "pages/text/index",
+    "pages/image/index",
+    "pages/pin/index",
+    "pages/clippath/index",
+    "pages/animation/index",
+    "pages/animation2/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ZRender Demo App",
+    "navigationBarTextStyle":"black"
+  }
+}

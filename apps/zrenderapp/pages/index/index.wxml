@@ -1,0 +1,92 @@
+<!--index.wxml-->
+<view class="page">
+
+  <view class="page__bd">
+      <view class="btn-area">
+          <navigator url="../circle/index" hover-class="navigator-hover">
+              <button type="default">Circle</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../line/index" hover-class="navigator-hover">
+              <button type="default">Line</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../rect/index" hover-class="navigator-hover">
+              <button type="default">Rect</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../bezier/index" hover-class="navigator-hover">
+              <button type="default">Bezier Curve</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../polygon/index" hover-class="navigator-hover">
+              <button type="default">Polygon</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../polyline/index" hover-class="navigator-hover">
+              <button type="default">Polyline</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../polyline2/index" hover-class="navigator-hover">
+              <button type="default">Polyline2</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../star/index" hover-class="navigator-hover">
+              <button type="default">Star</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../droplet/index" hover-class="navigator-hover">
+              <button type="default">Droplet</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../rose/index" hover-class="navigator-hover">
+              <button type="default">Rose</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../trochoid/index" hover-class="navigator-hover">
+              <button type="default">Trochoid</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../text/index" hover-class="navigator-hover">
+              <button type="default">Text</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../image/index" hover-class="navigator-hover">
+              <button type="default">Image</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../pin/index" hover-class="navigator-hover">
+              <button type="default">Custom Pin</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+        <navigator url="../clippath/index" hover-class="navigator-hover">
+            <button type="default">Clip Path</button>
+        </navigator>
+    </view>
+      <view class="btn-area">
+          <navigator url="../animation/index" hover-class="navigator-hover">
+              <button type="default">Animation</button>
+          </navigator>
+      </view>
+      <view class="btn-area">
+          <navigator url="../animation2/index" hover-class="navigator-hover">
+              <button type="default">Animation 2</button>
+          </navigator>
+      </view>
+
+  </view>
+</view>
