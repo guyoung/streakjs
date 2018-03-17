@@ -3,8 +3,8 @@ WeZRender：微信小程序Canvas开发
 
 ## 小程序
 
- * [微信小程序Canvas开发-使用Zrender](apps/zrenderapp/README.md)
- * [微信小程序Canvas开发-使用ECharts](apps/echartsapp/README.md)
+ * [微信小程序Canvas开发-使用Zrender](apps/zrenderapp/)
+ * [微信小程序Canvas开发-使用ECharts](apps/echartsapp/)
  
  
 
