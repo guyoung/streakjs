@@ -1,4 +1,0 @@
-<!--index.wxml-->
-<view class="container">
-  <ec-canvas id="mychart-dom-calendar" canvas-id="mychart-calendar" ec="{{ ec }}"></ec-canvas>
-</view>

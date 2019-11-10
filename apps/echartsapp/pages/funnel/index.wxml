@@ -1,4 +1,0 @@
-<!--index.wxml-->
-<view class="container">
-  <ec-canvas id="mychart-dom-funnel" canvas-id="mychart-funnel" ec="{{ ec }}"></ec-canvas>
-</view>

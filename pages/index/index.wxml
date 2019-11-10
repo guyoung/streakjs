@@ -1,0 +1,9 @@
+<view class="container" style="overflow: hidden; ">
+  <canvas id="sCanvas1" class="sCanvas" type="2d" 
+  style="width:100vw; height:100vh; background-color: #ffffff;" 
+  disable-scroll="true" 
+  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"></canvas>
+
+   <canvas id="sCanvas2" class="sCanvas" type="2d" 
+   style="width:100vw; height:100vh; margin-top: 100vh;  background-color: #ffffff;" disable-scroll="true"></canvas>
+</view>
