@@ -118,25 +118,25 @@ Page({
             });
 
             layer.add(rect);
-         
+
             var text = new streakjs.shapes.Text({
                 x: layer.width / 2,
                 y: 120,
                 text: 'streakjs',
-                fontSize: 60, 
-                fill: '#ea6c00'               
+                fontSize: 60,
+                fill: '#ea6c00'
             });
 
             text.offsetX = text.width / 2;
 
             layer.add(text);
-            
+
             layer.draw();
 
             var width = 240;
             var height = 40;
 
-            
+
             var label = new streakjs.shapes.Label({
                 x: (this._stage.width - width) / 2,
                 y: (this._stage.height - height) / 2,
@@ -174,20 +174,19 @@ Page({
 
 
             layer.add(label);
-           
-            
 
-            
+
+
 
             var angularSpeed = 90;
             var anim = new streakjs.Animation(function (frame) {
                 var angleDiff = (frame.timeDiff * angularSpeed) / 1000;
                 text.rotate(angleDiff);
-                
+
             }, layer);
-        
+
             anim.start();
-            
+
 
         });
     }

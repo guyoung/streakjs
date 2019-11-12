@@ -7,30 +7,23 @@ export function runDraw(layer) {
         radius: 60,
         fill: 'red',
         stroke: 'black',
-        strokeWidth: 4
+        strokeWidth: 4,
+        draggable: true
     });
 
-    circle.on('tap', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
+    circle.on('dragstart', function (e) {
+        writeMessage('circle dragstart');
     });  
 
-    var rect = new streakjs.shapes.Rect({
-        x: 50,
-        y: 250,
-        width: 120,
-        height: 80,
-        fill: 'green',
-        stroke: 'black',
-        strokeWidth: 4,
-        listening: false
-    });
+    circle.on('dragmove', function (e) {
+        writeMessage('circle dragmove');
+    });  
+
+    circle.on('dragend', function (e) {
+        writeMessage('circle dragend');
+    });  
 
 
-    rect.on('tap', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
-
- 
 
     var text = new streakjs.shapes.Text({
         x: 10,
@@ -40,12 +33,11 @@ export function runDraw(layer) {
     });
 
     layer.add(circle);
-    layer.add(rect);
-    layer.add(text);
-
-   
+    layer.add(text);   
 
     layer.draw();
+
+   
 
     function writeMessage(message) {
         text.text = message;

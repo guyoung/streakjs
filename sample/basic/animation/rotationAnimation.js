@@ -4,7 +4,7 @@ export function runDraw(layer) {
     var rect = new streakjs.shapes.Rect({
         x: layer.width / 2,
         y: layer.height / 2,
-        width: 50,
+        width: 100,
         height: 50,
         fill: 'red',
         stroke: 'black',
@@ -15,16 +15,13 @@ export function runDraw(layer) {
 
     layer.draw();
 
-    var amplitude = 100;
-    var period = 2000;
-    var centerX = layer.width / 2;
+    var angularSpeed = 90;
 
     var anim = new streakjs.Animation(function (frame) {
-        rect.x = 
-            amplitude * Math.sin((frame.time * 2 * Math.PI) / period) + centerX;
-        
+        var angleDiff = (frame.timeDiff * angularSpeed) / 1000;
+        rect.rotate(angleDiff);
     }, layer);
 
     anim.start();
-   
+
 }

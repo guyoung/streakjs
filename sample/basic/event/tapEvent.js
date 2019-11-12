@@ -10,16 +10,9 @@ export function runDraw(layer) {
         strokeWidth: 4
     });
 
-    circle.on('touchstart', function (e) {
+    circle.on('tap', function (e) {
         writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
-    circle.on('touchend', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
-    circle.on('touchmove', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
-
+    });  
 
     var rect = new streakjs.shapes.Rect({
         x: 50,
@@ -32,9 +25,11 @@ export function runDraw(layer) {
     });
 
 
-    rect.on('touchstart touchend touchmove', function (e) {
+    rect.on('tap', function (e) {
         writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
     });
+
+ 
 
     var text = new streakjs.shapes.Text({
         x: 10,
@@ -46,6 +41,8 @@ export function runDraw(layer) {
     layer.add(circle);
     layer.add(rect);
     layer.add(text);
+
+   
 
     layer.draw();
 

@@ -1,6 +1,13 @@
 const streakjs = require('../../../lib/streakjs/streakjs.min');
 
 export function runDraw(layer) {
+
+    layer.on('touchstart touchend touchmove', function (e) {
+       console.log(e)
+    });  
+
+    var group = new streakjs.Group();
+
     var circle = new streakjs.shapes.Circle({
         x: 100,
         y: 150,
@@ -10,16 +17,10 @@ export function runDraw(layer) {
         strokeWidth: 4
     });
 
-    circle.on('touchstart', function (e) {
+    circle.on('tap', function (e) {
+        e.cancelBubble = true;
         writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
-    circle.on('touchend', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
-    circle.on('touchmove', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
-
+    });  
 
     var rect = new streakjs.shapes.Rect({
         x: 50,
@@ -32,9 +33,18 @@ export function runDraw(layer) {
     });
 
 
-    rect.on('touchstart touchend touchmove', function (e) {
+    rect.on('tap', function (e) {
         writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
     });
+
+    group.add(circle)
+    group.add(rect)
+
+    group.on('tap', function () {
+        writeMessage('You tap on the group!');
+    });
+
+   
 
     var text = new streakjs.shapes.Text({
         x: 10,
@@ -43,14 +53,16 @@ export function runDraw(layer) {
         text: '',
     });
 
-    layer.add(circle);
-    layer.add(rect);
+
+   
+    layer.add(group);
     layer.add(text);
 
-    layer.draw();
+    layer.draw()
 
     function writeMessage(message) {
         text.text = message;
         layer.draw();
     }
+    
 }

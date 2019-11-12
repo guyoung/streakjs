@@ -12,6 +12,7 @@ export function runDraw(layer) {
   
     layer.add(circle);
 
+    
     layer.draw();
    
 }

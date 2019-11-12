@@ -10,15 +10,17 @@ export function runDraw(layer) {
         strokeWidth: 4
     });
 
-    circle.on('touchstart', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
+    circle.on('touchstart.evt1', function (e) {
+        writeMessage('circle touchstart.evt1');
+    });  
+
+    circle.on('touchstart.evt2', function (e) {
+        writeMessage('circle touchstart.evt2');
+    });  
+
     circle.on('touchend', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
-    circle.on('touchmove', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
-    });
+        writeMessage('circle touchend');
+    });  
 
 
     var rect = new streakjs.shapes.Rect({
@@ -28,13 +30,19 @@ export function runDraw(layer) {
         height: 80,
         fill: 'green',
         stroke: 'black',
-        strokeWidth: 4
+        strokeWidth: 4       
     });
 
 
-    rect.on('touchstart touchend touchmove', function (e) {
-        writeMessage('Events: ' + e.type+' Target: '+e.currentTarget.className);
+    rect.on('touchstart', function (e) {
+        writeMessage('rect touchstart');
     });
+
+    rect.on('touchend', function (e) {
+        writeMessage('rect touchend');
+    });
+
+ 
 
     var text = new streakjs.shapes.Text({
         x: 10,
@@ -45,9 +53,12 @@ export function runDraw(layer) {
 
     layer.add(circle);
     layer.add(rect);
-    layer.add(text);
+    layer.add(text);   
 
     layer.draw();
+
+    circle.off('touchstart.evt2');
+    rect.off('touchend');
 
     function writeMessage(message) {
         text.text = message;

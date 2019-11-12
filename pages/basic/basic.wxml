@@ -6,4 +6,7 @@
 
    <canvas id="sCanvas2" class="sCanvas" type="2d" 
    style="width:100vw; height:100vh; margin-top: 100vh;  background-color: #ffffff;" disable-scroll="true"></canvas>
+
+   <canvas canvas-id="cacheCanvas"
+   style="width:100vw; height:100vh; margin-top: 100vh;  background-color: #ffffff;" disable-scroll="true"></canvas>
 </view>

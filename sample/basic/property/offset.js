@@ -7,11 +7,13 @@ export function runDraw(layer) {
         y: 25,
         width: 100,
         height: 50,
-        fill: 'green',
+        fill: 'red',
         stroke: 'black',
         strokeWidth: 5,
         cornerRadius: 10
     });
+
+    
 
     var rect2 = new streakjs.shapes.Rect({
         x: (layer.width - 100) / 2,
