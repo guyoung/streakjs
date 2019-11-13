@@ -3,9 +3,8 @@ const streakjs = require('../../lib/streakjs/streakjs.min');
 import { resolveCanvas } from '../../utils/canvasUtil';
 
 Page({
-    _stage: {
-
-    },
+    _stage: null,
+    _anim: null,
     data: {
 
     },
@@ -15,6 +14,11 @@ Page({
     },
 
     onReady: function () {
+        
+
+    },
+
+    onShow: function () {
         var canvas, hitCanvas, width, height;
 
         resolveCanvas('#sCanvas1').then(res1 => {
@@ -32,14 +36,14 @@ Page({
                 });
             }
         });
+    },
 
-
+    onHide: function () {
+        this._hideOrUnLoad();
     },
 
     onUnload: function () {
-        if (this._stage) {
-            this._stage.destroy();
-        }
+        this._hideOrUnLoad();
     },
 
     buildStage(canvas, hitCanvas, width, height) {
@@ -103,10 +107,7 @@ Page({
             'bg_1': '../../images/bg-1.png'
         };
 
-
-
         streakjs.loader.loadImages(sources, (res) => {
-
             var rect = new streakjs.shapes.Rect({
                 x: 0,
                 y: 0,
@@ -172,25 +173,38 @@ Page({
                 })
             });
 
-
             layer.add(label);
 
 
-
-
             var angularSpeed = 90;
-            var anim = new streakjs.Animation(function (frame) {
+            this._anim = new streakjs.Animation(function (frame) {
                 var angleDiff = (frame.timeDiff * angularSpeed) / 1000;
+                
                 text.rotate(angleDiff);
 
             }, layer);
 
-            anim.start();
+            this._anim.start();
 
 
         });
-    }
+    },
 
+    _hideOrUnLoad() {
+        if (this._anim && this._anim.isRunning()) {        
+            this._anim.stop();
+    
+            this._anim = null;
+        }
+    
+        if (this._anim) {
+            this._anim = null;
+        }
+
+        if (this._stage) {
+            this._stage.destroy();
+        }
+    }
 
 
 })

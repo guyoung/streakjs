@@ -1,5 +1,7 @@
 const streakjs = require('../../../lib/streakjs/streakjs.min');
 
+var anim;
+
 export function runDraw(layer) {
     var regularPolygon = new streakjs.shapes.RegularPolygon({
         x: layer.width / 2,
@@ -10,7 +12,7 @@ export function runDraw(layer) {
         stroke: 'black',
         strokeWidth: 4,
         draggable: true
-      });
+    });
 
     layer.add(regularPolygon);
 
@@ -18,12 +20,23 @@ export function runDraw(layer) {
 
     var period = 2000;
 
-    var anim = new streakjs.Animation(function(frame) {
-        var scale = Math.sin((frame.time * 2 * Math.PI) / period) + 0.001;       
+    anim = new streakjs.Animation(function (frame) {
+        var scale = Math.sin((frame.time * 2 * Math.PI) / period) + 0.001;
         regularPolygon.scale = { x: scale, y: scale };
-      }, layer);
+    }, layer);
 
-      anim.start();
     anim.start();
 
+}
+
+export function destroy() { 
+    if (anim && anim.isRunning()) {        
+        anim.stop();
+
+        anim = null;
+    }
+
+    if (anim) {
+        anim = null;
+    }
 }

@@ -1,5 +1,7 @@
 const streakjs = require('../../../lib/streakjs/streakjs.min');
 
+var anim;
+
 export function runDraw(layer) {
     var rect = new streakjs.shapes.Rect({
         x: layer.width / 2,
@@ -17,11 +19,22 @@ export function runDraw(layer) {
 
     var angularSpeed = 90;
 
-    var anim = new streakjs.Animation(function (frame) {
+    anim = new streakjs.Animation(function (frame) {
         var angleDiff = (frame.timeDiff * angularSpeed) / 1000;
         rect.rotate(angleDiff);
     }, layer);
 
     anim.start();
+}
 
+export function destroy() { 
+    if (anim && anim.isRunning()) {        
+        anim.stop();
+
+        anim = null;
+    }
+
+    if (anim) {
+        anim = null;
+    }
 }

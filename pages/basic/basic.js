@@ -5,15 +5,14 @@ import { resolveCanvas } from '../../utils/canvasUtil';
 
 
 Page({
-    _stage: {
-
-    },
+    _stage: null,
+    _action: null,
     data: {
         title: '',
         path: ''
     },
 
-    onLoad: function (opts) {
+    onLoad: function (opts) {      
         var path = '';
 
         if (opts && opts.path) {
@@ -30,12 +29,10 @@ Page({
 
     onReady: function () {
 
-
-
     },
 
 
-    onShow: function () {
+    onShow: function () {    
         var canvas, hitCanvas, width, height;
 
         resolveCanvas('#sCanvas1').then(res1 => {
@@ -56,14 +53,12 @@ Page({
     },
 
     onHide: function () {
-        if (this._stage) {
-            this._stage.destroy();
-        }
+       this._hideOrUnLoad();
     },
 
 
     onUnload: function () {
-
+        this._hideOrUnLoad();
     },
 
     buildStage(canvas, hitCanvas, width, height) {
@@ -90,9 +85,11 @@ Page({
 
             this._stage.add(layer);
 
-            var mainMenu = require('../../sample/basic/' + this.data.path);
+            this._action = require('../../sample/basic/' + this.data.path);            
 
-            mainMenu.runDraw(layer);
+            this._action.runDraw(layer);
+
+            
 
 
         } catch (e) {
@@ -122,6 +119,16 @@ Page({
         }
         streakjs.DD.endDragBefore(evt);
         streakjs.DD.endDragAfter(evt);
+    },
+
+    _hideOrUnLoad() {
+        if (this._action && this._action.destroy) {
+            this._action.destroy();
+        }
+
+        if (this._stage) {
+            this._stage.destroy();
+        }
     }
 
 })

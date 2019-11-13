@@ -1,5 +1,7 @@
 const streakjs = require('../../../lib/streakjs/streakjs.min');
 
+var sprite;
+
 export function runDraw(layer) {
 
     var animations = {
@@ -17,7 +19,7 @@ export function runDraw(layer) {
     };
 
     streakjs.loader.loadImage('../../images/sprite.png', (res) => {
-        var sprite = new streakjs.shapes.Sprite({
+        sprite = new streakjs.shapes.Sprite({
             x: 50,
             y: 50,
             image: res,
@@ -33,4 +35,16 @@ export function runDraw(layer) {
 
         sprite.start();
     });
+}
+
+export function destroy() { 
+    if (sprite && sprite.isRunning()) {        
+        sprite.stop();
+
+        sprite = null;
+    }
+
+    if (sprite) {
+        sprite = null;
+    }
 }

@@ -1,5 +1,7 @@
 const streakjs = require('../../../lib/streakjs/streakjs.min');
 
+var tween;
+
 export function runDraw(layer) {
     var circle = new streakjs.shapes.Circle({
         x: layer.width / 2,
@@ -28,4 +30,10 @@ export function runDraw(layer) {
         tween.play();
     }, 2000);
    
+}
+
+export function destroy() { 
+    if (tween) {        
+        tween.destroy()
+    }
 }
