@@ -1,4 +1,4 @@
-const streakjs = require('../../lib/streakjs/streakjs.min');
+const streakjs = wx.streakjs = require('../../lib/streakjs/streakjs.min');
 
 import { resolveCanvas } from '../../utils/canvasUtil';
 
@@ -14,7 +14,7 @@ Page({
     },
 
     onReady: function () {
-        
+
 
     },
 
@@ -132,28 +132,33 @@ Page({
 
             layer.add(text);
 
-            layer.draw();
-
+            layer.draw(); 
+            
             var width = 240;
-            var height = 40;
+            var height = 60;
 
+            var button = new streakjs.shapes.Button({
+                    x: (this._stage.width - width) / 2,
+                    y: (this._stage.height - height) / 2,
+    
+                });
 
-            var label = new streakjs.shapes.Label({
-                x: (this._stage.width - width) / 2,
-                y: (this._stage.height - height) / 2,
-
-            });
-
-            label.add(
-                new streakjs.shapes.Tag({
+            button.add(
+                new streakjs.shapes.Rect({
                     fillPatternImage: res.bg_1,
                     fillPatternOffset: { x: -220, y: 70 },
+                    cornerRadius: 10,
+                    shadowColor: 'black',
+                    shadowBlur: 0.5,
+                    shadowOffset: { x: 3, y: 5 },
+                    shadowOpacity: 0.5
                 })
             );
 
-            label.add(
+            button.add(
                 new streakjs.shapes.Text({
                     width: width,
+                    height: height,
                     text: '基本功能',
                     fontSize: 40,
                     padding: 20,
@@ -166,20 +171,20 @@ Page({
                     shadowOpacity: 0.5
                 })
             );
-
-            label.on('tap', function () {
+                     
+            button.on('tap', function () {
                 wx.navigateTo({
                     url: '../basic/basic'
                 })
             });
 
-            layer.add(label);
+            layer.add(button);
 
 
             var angularSpeed = 90;
             this._anim = new streakjs.Animation(function (frame) {
                 var angleDiff = (frame.timeDiff * angularSpeed) / 1000;
-                
+
                 text.rotate(angleDiff);
 
             }, layer);
@@ -191,18 +196,20 @@ Page({
     },
 
     _hideOrUnLoad() {
-        if (this._anim && this._anim.isRunning()) {        
+        if (this._anim && this._anim.isRunning()) {
             this._anim.stop();
-    
+
             this._anim = null;
         }
-    
+
         if (this._anim) {
             this._anim = null;
         }
 
         if (this._stage) {
             this._stage.destroy();
+
+            this._stage = null;
         }
     }
 

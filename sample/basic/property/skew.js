@@ -22,8 +22,7 @@ export function runDraw(layer) {
         stroke: 'black',
         strokeWidth: 5,
         cornerRadius: 10,
-        skewX: 1.5,
-        skewY: 2
+        skewY: 30,    
     });
 
 

@@ -15,14 +15,14 @@ export function runDrawContentMenu(contents, layer) {
 
         y = Math.floor(i / 2) * (height + 5);
 
-        var label = new streakjs.shapes.Label({
+        var button = new streakjs.shapes.Label({
             x: x,
             y: y,
             width: width,
             height: height
         });
 
-        label.add(
+        button.add(
             new streakjs.shapes.Tag({
                 fillLinearGradientStartPoint: { x: 0, y: 0 },
                 fillLinearGradientEndPoint: { x: width, y: height },
@@ -30,7 +30,7 @@ export function runDrawContentMenu(contents, layer) {
             })
         );
 
-        label.add(
+        button.add(
             new streakjs.shapes.Text({
                 width: width,
                 text: contents[i].title,
@@ -43,10 +43,10 @@ export function runDrawContentMenu(contents, layer) {
             })
         );
 
-        label.__PATH = contents[i].path;
+        button.__PATH = contents[i].path;
 
 
-        label.on('tap', function (e) {
+        button.on('tap', function (e) {
             if (e.currentTarget && e.currentTarget.__PATH) {
                 wx.navigateTo({
                     url: '../basic/basic?path=' + e.currentTarget.__PATH
@@ -56,7 +56,7 @@ export function runDrawContentMenu(contents, layer) {
         });
 
 
-        layer.add(label);
+        layer.add(button);
         layer.draw();
     }
 }

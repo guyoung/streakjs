@@ -38,15 +38,15 @@ export function runDraw(layer) {
         x = 10;
         y = i * (height + 5);
 
-        var label = new streakjs.shapes.Label({
+        var button = new streakjs.shapes.Button({
             x: x,
             y: y,
             width: width,
             height: height
         });
 
-        label.add(
-            new streakjs.shapes.Tag({
+        button.add(
+            new streakjs.shapes.Rect({
                 fillRadialGradientStartPoint: { x: width / 2, y: height / 2 },
                 fillRadialGradientStartRadius: height / 2,
                 fillRadialGradientEndPoint: { x: width / 2, y: height / 2 },
@@ -55,7 +55,7 @@ export function runDraw(layer) {
             })
         );
 
-        label.add(
+        button.add(
             new streakjs.shapes.Text({
                 width: width,
                 text: catalogs[i].title,
@@ -66,21 +66,21 @@ export function runDraw(layer) {
                 fill: 'white',
                 shadowColor: 'black',
                 shadowBlur: 0,
-                shadowOffset: { x: 2, y: 5 },
+                shadowOffset: { x: 3, y: 4 },
                 shadowOpacity: 0.5
             })
         );
 
-        label.__PATH = catalogs[i].path;
+        button.__PATH = catalogs[i].path;
 
-        label.on('tap', function (e) {
+        button.on('tap', function (e) {
             wx.navigateTo({
                 url: '../basic/basic?path='+e.currentTarget.__PATH
             })
         });
 
 
-        layer.add(label);
+        layer.add(button);
         layer.draw();
     }
 }

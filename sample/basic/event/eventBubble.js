@@ -1,10 +1,6 @@
 const streakjs = require('../../../lib/streakjs/streakjs.min');
 
-export function runDraw(layer) {
-
-    layer.on('touchstart touchend touchmove', function (e) {
-       console.log(e)
-    });  
+export function runDraw(layer) {  
 
     var group = new streakjs.Group();
 

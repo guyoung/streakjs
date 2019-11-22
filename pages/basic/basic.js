@@ -1,4 +1,5 @@
-const streakjs = require('../../lib/streakjs/streakjs.min');
+const streakjs = wx.streakjs = require('../../lib/streakjs/streakjs.min');
+
 
 import { resolveCanvas } from '../../utils/canvasUtil';
 
@@ -13,6 +14,9 @@ Page({
     },
 
     onLoad: function (opts) {      
+
+
+
         var path = '';
 
         if (opts && opts.path) {
@@ -128,6 +132,8 @@ Page({
 
         if (this._stage) {
             this._stage.destroy();
+
+            this._stage = null;
         }
     }
 
