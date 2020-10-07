@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/basic/basic",
-    "pages/extension/extension"
+    "pages/streakjs/index/index",
+    "pages/streakjs/basic/basic",
+    "pages/streakjs/extension/extension"
   ],
   "window": {
     "backgroundTextStyle": "light",
