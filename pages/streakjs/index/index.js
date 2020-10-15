@@ -3,10 +3,10 @@ const streakjs = wx.streakjs = require('../../../lib/streakjs/streakjs.min');
 import { resolveCanvas } from '../../../utils/canvasUtil';
 
 Page({
-    _stage: null,
-    _anim: null,
     data: {
-
+        windowWidth: 360,
+        windowHeight: 360,
+        dpr: 1,
     },
 
     onLoad: function () {
@@ -19,20 +19,32 @@ Page({
     },
 
     onShow: function () {
-        var canvas, hitCanvas, width, height;
+        const res = wx.getSystemInfoSync();
+
+        const windowWidth = res.windowWidth;
+        const windowHeight = res.windowHeight;
+        //const dpr = wx.getSystemInfoSync().pixelRatio;
+        const dpr = 1;
+
+        this.setData({
+            windowWidth: windowWidth,
+            windowHeight: windowHeight,
+            dpr: dpr,
+
+        });
+
+        let canvas, hitCanvas;
 
         resolveCanvas('#sCanvas1').then(res1 => {
-            if (res1) {
-                canvas = res1.canvas;
-                width = res1.width;
-                height = res1.height
+            if (res1) {               
+                canvas = res1.canvas;             
 
-                resolveCanvas('#sCanvas2').then(res2 => {
+                resolveCanvas('#sCanvas2').then(res2 => {                 
                     if (res2) {
                         hitCanvas = res2.canvas;
                     }
 
-                    this.buildStage(canvas, hitCanvas, width, height);
+                    this.buildStage(canvas, hitCanvas);
                 });
             }
         });
@@ -46,13 +58,13 @@ Page({
         this._hideOrUnLoad();
     },
 
-    buildStage(canvas, hitCanvas, width, height) {
+    buildStage(canvas, hitCanvas) {
         try {
-            canvas.width = canvas._width = width;
-            canvas.height = canvas._height = height;
+            canvas.width = this.data.windowWidth;
+            canvas.height = this.data.windowHeight;
 
-            hitCanvas.width = hitCanvas._width = width;
-            hitCanvas.height = hitCanvas._height = height;
+            hitCanvas.width = this.data.windowWidth;;
+            hitCanvas.height = this.data.windowHeight;
 
             streakjs.config.listenClickTap = true;
 
@@ -116,7 +128,7 @@ Page({
                 fillLinearGradientStartPoint: { x: layer.width / 2, y: 0 },
                 fillLinearGradientEndPoint: { x: layer.width / 2, y: layer.height },
                 fillLinearGradientColorStops: [0, 'white', 1, '#feeeb7']
-            });
+            });          
 
             layer.add(rect);
 
@@ -132,16 +144,16 @@ Page({
 
             layer.add(text);
 
-            layer.draw(); 
-            
+            layer.draw();
+
             var width = 240;
             var height = 60;
 
             var button = new streakjs.shapes.Button({
-                    x: (this._stage.width - width) / 2,
-                    y: (this._stage.height - height) / 2,
-    
-                });
+                x: (this._stage.width - width) / 2,
+                y: (this._stage.height - height) / 2,
+
+            });
 
             button.add(
                 new streakjs.shapes.Rect({
@@ -171,7 +183,7 @@ Page({
                     shadowOpacity: 0.5
                 })
             );
-                     
+
             button.on('tap', function () {
                 wx.navigateTo({
                     url: '../basic/basic'
